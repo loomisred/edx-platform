@@ -894,6 +894,48 @@ def dashboard(request):
     return response
 
 
+def course_refund_status(request):
+    # get course key
+    from django.http import JsonResponse
+    course_id = request.GET.get('course_id')
+
+    if course_id:
+        try:
+            course_key = CourseKey.from_string(course_id)
+            course_enrollment = CourseEnrollment.get_enrollment(request.user, course_key)
+
+        except InvalidKeyError as err:
+            logging.error("An error as occured while getting refund status for course %s: %s", course_id, err.message)
+
+            return JsonResponse({
+                'course_refundable_status': '',
+                'success': False})
+
+        try:
+            user_already_has_certs_for = GeneratedCertificate.course_ids_with_certs_for_user(request.user)
+            refundable_status = True if course_enrollment.refundable(
+                    user_already_has_certs_for=user_already_has_certs_for
+                ) else False
+
+            # use json to pass the result to ajax call
+            return JsonResponse({
+                'course_refundable_status': refundable_status,
+                'success': True
+            })
+
+        except Exception as err:
+            logging.error("An error as occured while getting refund status for course %s: %s", course_id, err.message)
+
+            return JsonResponse({
+                'course_refundable_status': '',
+                'success': False})
+
+    return JsonResponse({
+        'course_refundable_status': '',
+        'success': False
+    })
+
+
 def get_verification_error_reasons_for_display(verification_error_codes):
     verification_errors = []
     verification_error_map = {
