@@ -22,7 +22,7 @@ is_rtl = get_language_bidi()
 % if user_access['is_anonymous']:
     <div class="course-message grid-manual">
         % if not is_rtl:
-        <img class="message-author col col-2" src="${static.url(image_src)}"/>
+            <img class="message-author col col-2" src="${static.url(image_src)}"/>
         % endif
         <div class="message-content col ${'col-12' if is_rtl else 'col-10'}">
             ${HTML(_(
@@ -44,7 +44,7 @@ is_rtl = get_language_bidi()
 % if not user_access['is_anonymous'] and not user_access['is_enrolled']:
     <div class="course-message grid-manual">
         % if not is_rtl:
-        <img class="message-author col col-2" src="${static.url(image_src)}"/>
+            <img class="message-author col col-2" src="${static.url(image_src)}"/>
         % endif
         <div class="message-content col ${'col-12' if is_rtl else 'col-10'}">
             ${HTML(_(
@@ -59,7 +59,7 @@ is_rtl = get_language_bidi()
 % if (user_access['is_staff'] or user_access['is_enrolled']) and not already_started:
     <div class="course-message grid-manual">
         % if not is_rtl:
-        <img class="message-author col col-2" src="${static.url(image_src)}"/>
+            <img class="message-author col col-2" src="${static.url(image_src)}"/>
         % endif
         <div class="message-content col ${'col-12' if is_rtl else 'col-10'}">
             ${HTML(_(

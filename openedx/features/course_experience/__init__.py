@@ -3,7 +3,8 @@ Unified course experience settings and helper methods.
 """
 from django.utils.translation import ugettext as _
 
-from openedx.core.djangoapps.waffle_utils import CourseWaffleFlag, WaffleFlag, WaffleFlagNamespace
+from openedx.core.djangoapps.util.user_messages import UserMessageCollection
+from openedx.core.djangoapps.waffle_utils import CourseWaffleFlag, WaffleFlagNamespace
 
 
 # Namespace for course experience waffle flags.
@@ -58,3 +59,14 @@ def course_home_url_name(course_key):
         return 'openedx.course_experience.course_home'
     else:
         return 'info'
+
+
+class CourseHomeMessages(UserMessageCollection):
+    """
+    This set of messages appears as top page level messages.
+    """
+    def get_name(self):
+        """
+        Returns the name of the message collection.
+        """
+        return 'page_level_messages'
