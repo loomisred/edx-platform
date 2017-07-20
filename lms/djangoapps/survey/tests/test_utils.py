@@ -89,28 +89,28 @@ class SurveyModelsTests(ModuleStoreTestCase):
         """
         Assert that a new course which has a required survey but user has not answered it yet
         """
-        self.assertTrue(must_answer_survey(self.course, self.student))
+        self.assertTrue(must_answer_survey(self.student, self.course))
 
         temp_course = CourseFactory.create(
             course_survey_required=False
         )
-        self.assertFalse(must_answer_survey(temp_course, self.student))
+        self.assertFalse(must_answer_survey(self.student, temp_course))
 
         temp_course = CourseFactory.create(
             course_survey_required=True,
             course_survey_name="NonExisting"
         )
-        self.assertFalse(must_answer_survey(temp_course, self.student))
+        self.assertFalse(must_answer_survey(self.student, temp_course))
 
     def test_user_has_answered_required_survey(self):
         """
         Assert that a new course which has a required survey and user has answers for it
         """
         self.survey.save_user_answers(self.student, self.student_answers, None)
-        self.assertFalse(must_answer_survey(self.course, self.student))
+        self.assertFalse(must_answer_survey(self.student, self.course))
 
     def test_staff_must_answer_survey(self):
         """
         Assert that someone with staff level permissions does not have to answer the survey
         """
-        self.assertFalse(must_answer_survey(self.course, self.staff))
+        self.assertFalse(must_answer_survey(self.staff, self.course))

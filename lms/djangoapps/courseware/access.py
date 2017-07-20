@@ -845,11 +845,13 @@ def must_answer_survey(user, course_descriptor):
     if not answered_survey:
         return True
 
+
 def _check_survey_requirements(user, course_descriptor):
     """
     Wrapper around must_answer_survey that returns ACCESS_GRANTED or a SurveyIncompleteError
     """
     return SurveyIncompleteError() if must_answer_survey(user, course_descriptor) else ACCESS_GRANTED
+
 
 def is_mobile_available_for_user(user, descriptor):
     """

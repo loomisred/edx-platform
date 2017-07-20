@@ -615,8 +615,7 @@ class AccessTestCase(LoginEnrollmentTestCase, ModuleStoreTestCase, MilestonesTes
         """
         Test course access on mobile for staff and students.
         """
-        descriptor = Mock(id=self.course.id, user_partitions=[])
-        descriptor._class_tags = {}
+        descriptor = CourseFactory()
         descriptor.visible_to_staff_only = False
         descriptor.mobile_available = mobile_available
 

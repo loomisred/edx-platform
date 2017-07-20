@@ -1298,7 +1298,7 @@ def course_survey(request, course_id):
     """
 
     course_key = CourseKey.from_string(course_id)
-    course = get_course_with_access(request.user, 'load', course_key)
+    course = modulestore().get_course(course_key, depth=0)
 
     redirect_url = reverse(course_home_url_name(course.id), args=[course_id])
 
