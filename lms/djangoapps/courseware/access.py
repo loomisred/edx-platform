@@ -317,7 +317,7 @@ def _has_access_course(user, action, courselike):
             _visible_to_nonstaff_users(courselike) and
             check_course_open_for_learner(user, courselike) and
             _can_view_courseware_with_prerequisites(user, courselike) and
-            must_answer_survey(user, courselike)
+            _check_survey_requirements(user, courselike)
         )
 
         return (
@@ -841,10 +841,15 @@ def must_answer_survey(user, course_descriptor):
     # course staff do not need to answer survey
     answered_survey = SurveyAnswer.do_survey_answers_exist(survey, user)
     if has_staff_access:
-        return ACCESS_GRANTED
+        return False
     if not answered_survey:
-        return SurveyIncompleteError()
+        return True
 
+def _check_survey_requirements(user, course_descriptor):
+    """
+    Wrapper around must_answer_survey that returns ACCESS_GRANTED or a SurveyIncompleteError
+    """
+    return SurveyIncompleteError() if must_answer_survey(user, course_descriptor) else ACCESS_GRANTED
 
 def is_mobile_available_for_user(user, descriptor):
     """
