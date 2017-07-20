@@ -80,7 +80,7 @@ class UserMessageCollection():
     def get_name(self):
         """
         Returns the name of the message collection.
-        
+
         The name is used to namespace the subset of django messages.
         For example, return 'course_home_messages'.
         """
@@ -89,11 +89,11 @@ class UserMessageCollection():
     @classmethod
     def get_message_html(self, body_html, title=None):
         if title:
-            return HTML(_('{header_open}{title}{header_close}{body}')).format(
-                header_open='<div class="message-header">',
+            return Text(_('{header_open}{title}{header_close}{body}')).format(
+                header_open=HTML('<div class="message-header">'),
                 title=title,
                 body=body_html,
-                header_close='</div'
+                header_close=HTML('</div>')
             )
         return body_html
 
@@ -101,7 +101,7 @@ class UserMessageCollection():
     def register_user_message(self, request, message_type, body_html, title=None):
         """
         Register a message to be shown to the user in the next page.
-        
+
         Arguments:
             message_type (UserMessageType): the user message type
             body_html (str): body of the message in html format
@@ -143,7 +143,7 @@ class UserMessageCollection():
     def user_messages(self, request):
         """
         Returns any outstanding user messages.
-    
+
         Note: this function also marks these messages as being complete
         so they won't be returned in the next request.
         """

@@ -65,8 +65,9 @@ class CourseHomeMessages(UserMessageCollection):
     """
     This set of messages appears as top page level messages.
     """
+    @classmethod
     def get_name(self):
         """
         Returns the name of the message collection.
         """
-        return 'page_level_messages'
+        return 'course_home_level_messages'

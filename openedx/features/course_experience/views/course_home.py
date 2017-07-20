@@ -145,7 +145,7 @@ class CourseHomeFragmentView(EdxFragmentView):
         # Get the course tools enabled for this user and course
         course_tools = CourseToolsPluginManager.get_enabled_course_tools(request, course_key)
 
-        # Grab the relevant message
+        # Grab the course home message fragment
         course_message_fragment = CourseMessageFragmentView().render_to_fragment(
             request, course_id=course_id, user_access=user_access, **kwargs
         )

@@ -7,12 +7,16 @@ from datetime import datetime
 
 from courseware.courses import get_course_with_access
 from django.template.loader import render_to_string
+from django.utils.http import urlquote_plus
 from django.utils.timezone import UTC
 from django.utils.translation import get_language, to_locale
+from django.utils.translation import ugettext as _
+from openedx.core.djangolib.markup import Text, HTML
 from opaque_keys.edx.keys import CourseKey
 from web_fragments.fragment import Fragment
 
 from openedx.core.djangoapps.plugin_api.views import EdxFragmentView
+from openedx.features.course_experience import CourseHomeMessages
 
 
 class CourseMessageFragmentView(EdxFragmentView):
@@ -33,8 +37,7 @@ class CourseMessageFragmentView(EdxFragmentView):
         'is_staff': True if the user is a staff member of the course, False otherwise
     }
     """
-
-    def render_to_fragment(self, request, course_id=None, user_access=None, **kwargs):
+    def render_to_fragment(self, request, course_id, user_access, **kwargs):
         """
         Renders a course message fragment for the specified course.
         """
@@ -43,10 +46,19 @@ class CourseMessageFragmentView(EdxFragmentView):
 
         # Get time until the start date, if already started, or no start date, value will be zero or negative
         now = datetime.now(UTC())
-        delta = course.start - now
-        course_start_date = format_date(course.start, locale=to_locale(get_language()))
-        already_started = course.start and (course.start - now).days <= 0
-        days_until_start_string = "started" if already_started else format_timedelta(delta, locale=to_locale(get_language()))
+        already_started = course.start and now > course.start
+        days_until_start_string = "started" if already_started else format_timedelta(course.start - now, locale=to_locale(get_language()))
+        course_start_data = {
+            'course_start_date': format_date(course.start, locale=to_locale(get_language())),
+            'already_started': already_started,
+            'days_until_start_string': days_until_start_string
+        }
+
+        # Register the course home messages to be loaded on the page
+        self.register_course_home_messages(request, course, user_access, course_start_data)
+
+        # Grab the relevant messages
+        course_home_messages = list(CourseHomeMessages.user_messages(request))
 
         # Return None if user is enrolled and course has begun
         if user_access['is_enrolled'] and already_started:
@@ -56,13 +68,63 @@ class CourseMessageFragmentView(EdxFragmentView):
         image_src = "course_experience/images/xsy_circle.png"
 
         context = {
-            'user_access': user_access,
-            'course': course,
-            'course_start_date': course_start_date,
-            'days_until_start_string': days_until_start_string,
-            'already_started': already_started,
+            'course_home_messages': course_home_messages,
             'image_src': image_src,
         }
 
         html = render_to_string('course_experience/course-message-fragment.html', context)
         return Fragment(html)
+
+    @staticmethod
+    def register_course_home_messages(request, course, user_access, course_start_data):
+        """
+        Register messages to be shown in the course home content page.
+        """
+        if user_access['is_anonymous']:
+            CourseHomeMessages.register_info_message(
+                request,
+                Text(_(
+                    " {sign_in_link} or {register_link} and then enroll in this course."
+                )).format(
+                    sign_in_link=HTML("<a href='/login?next={current_url}'>{sign_in_label}</a>").format(
+                        sign_in_label=_("Sign in"),
+                        current_url=urlquote_plus(request.path),
+                    ),
+                    register_link=HTML("<a href='/register?next={current_url}'>{register_label}</a>").format(
+                        register_label=_("register"),
+                        current_url=urlquote_plus(request.path),
+                    )
+                ),
+                title=Text(_('You must be enrolled in the course to see course content.'))
+            )
+        if not user_access['is_anonymous'] and not user_access['is_enrolled']:
+            CourseHomeMessages.register_info_message(
+                request,
+                Text(_(
+                    "{open_enroll_link} Enroll now{close_enroll_link} to access the full course."
+                )).format(
+                    open_enroll_link=HTML("<a class='enroll_link' href='#'>"),
+                    close_enroll_link=HTML("</a>")
+                ),
+                title=Text(_(
+                    'Welcome to {course_display_name}'
+                )).format(
+                    course_display_name=course.display_name
+                )
+            )
+        if (user_access['is_staff'] or user_access['is_enrolled']) and not course_start_data['already_started']:
+            CourseHomeMessages.register_info_message(
+                request,
+                Text(_(
+                    "{add_reminder_open_tag}Add a calendar reminder{add_reminder_close_tag}."
+                )).format(
+                    add_reminder_open_tag=HTML("<a class='add_calendar_reminder' href='#'>"),
+                    add_reminder_close_tag=HTML("</a>")
+                ),
+                title=Text(_(
+                    "Course starts in {days_until_start_string} on {course_start_date}."
+                )).format(
+                    days_until_start_string=course_start_data['days_until_start_string'],
+                    course_start_date=course_start_data['course_start_date']
+                )
+            )
