@@ -8,7 +8,8 @@ define(['backbone', 'gettext', 'underscore'], function(Backbone, gettext, _) {
             messages: [],
             empty: true,
             xblock_id: null,
-            isUnit: false
+            isUnit: false,
+            validationMessages: null
         },
 
         WARNING: 'warning',
