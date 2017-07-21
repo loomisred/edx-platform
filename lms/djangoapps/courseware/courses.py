@@ -134,13 +134,13 @@ def check_course_access(course, user, action, check_if_enrolled=False, check_sur
             raise CourseAccessRedirect('{dashboard_url}?{params}'.format(
                 dashboard_url=reverse('dashboard'),
                 params=params.urlencode()
-            ))
+            ), access_response)
 
         # Redirect if the user must answer a survey before entering the course.
         if isinstance(access_response, MilestoneError):
             raise CourseAccessRedirect('{dashboard_url}'.format(
                 dashboard_url=reverse('dashboard'),
-            ))
+            ), access_response)
 
         # Deliberately return a non-specific error message to avoid
         # leaking info about access control settings
