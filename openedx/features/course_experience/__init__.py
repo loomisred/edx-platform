@@ -63,11 +63,13 @@ def course_home_url_name(course_key):
 
 class CourseHomeMessages(UserMessageCollection):
     """
-    This set of messages appears as top page level messages.
+    This set of messages appear above the outline on the course home page.
     """
+    NAMESPACE = 'course_home_level_messages'
+
     @classmethod
-    def get_name(self):
+    def get_namespace(self):
         """
         Returns the name of the message collection.
         """
-        return 'course_home_level_messages'
+        return self.NAMESPACE

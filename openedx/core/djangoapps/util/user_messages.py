@@ -109,7 +109,7 @@ class UserMessageCollection():
         """
         assert isinstance(message_type, UserMessageType)
         message = Text(self.get_message_html(body_html, title))
-        messages.add_message(request, message_type.value, Text(message), extra_tags=self.get_name())
+        messages.add_message(request, message_type.value, Text(message), extra_tags=self.get_namespace())
 
     @classmethod
     def register_info_message(self, request, message, **kwargs):
@@ -166,16 +166,18 @@ class UserMessageCollection():
             )
 
         django_messages = messages.get_messages(request)
-        return (_create_user_message(message) for message in django_messages if self.get_name() in message.tags)
+        return (_create_user_message(message) for message in django_messages if self.get_namespace() in message.tags)
 
 
 class PageLevelMessages(UserMessageCollection):
     """
     This set of messages appears as top page level messages.
     """
+    NAMESPACE = 'page_level_messages'
+
     @classmethod
-    def get_name(self):
+    def get_namespace(self):
         """
         Returns the name of the message collection.
         """
-        return 'page_level_messages'
+        return self.NAMESPACE

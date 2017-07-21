@@ -2,11 +2,11 @@
 .course-message {
   .message-author {
     display: inline-block;
-    width: $baseline*7/2;
+    width: 70px;
     border-radius: $baseline*7/4;
     border: 1px solid $lms-border-color;
 
-    @media (max-width: 880px) {
+    @media (max-width: $grid-breakpoints-md) {
       display: none;
     }
   }
@@ -18,13 +18,13 @@
     padding: $baseline/2 $baseline;
     border-radius: $baseline/4;
 
-    @media (max-width: 880px) {
+    @media (max-width: $grid-breakpoints-md) {
       width: 100%;
       margin: $baseline 0;
     }
 
     &:after, &:before {
-      @include left(0%);
+      @include left(0);
       bottom: 35%;
       border: solid transparent;
       height: 0;
@@ -32,7 +32,7 @@
       content: " ";
       position: absolute;
 
-      @media (max-width: 880px) {
+      @media (max-width: $grid-breakpoints-md) {
         display: none;
       }
     }

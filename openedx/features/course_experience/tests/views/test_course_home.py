@@ -31,10 +31,10 @@ TEST_CHAPTER_NAME = 'Test Chapter'
 TEST_WELCOME_MESSAGE = '<h2>Welcome!</h2>'
 TEST_UPDATE_MESSAGE = '<h2>Test Update!</h2>'
 TEST_COURSE_UPDATES_TOOL = '/course/updates">'
-TEST_COURSE_MESSAGE = 'course-message'
-TEST_COURSE_MESSAGE_ANONYMOUS = '/login'
-TEST_COURSE_MESSAGE_UNENROLLED = 'Enroll now'
-TEST_COURSE_MESSAGE_PRE_START = 'Course starts in'
+TEST_COURSE_HOME_MESSAGE = 'course-message'
+TEST_COURSE_HOME_MESSAGE_ANONYMOUS = '/login'
+TEST_COURSE_HOME_MESSAGE_UNENROLLED = 'Enroll now'
+TEST_COURSE_HOME_MESSAGE_PRE_START = 'Course starts in'
 
 QUERY_COUNT_TABLE_BLACKLIST = WAFFLE_TABLES
 
@@ -351,26 +351,26 @@ class TestCourseHomePageAccess(CourseHomePageTestCase):
         # Verify that anonymous users are shown a login link in the course message
         url = course_home_url(self.course)
         response = self.client.get(url)
-        self.assertContains(response, TEST_COURSE_MESSAGE)
-        self.assertContains(response, TEST_COURSE_MESSAGE_ANONYMOUS)
+        self.assertContains(response, TEST_COURSE_HOME_MESSAGE)
+        self.assertContains(response, TEST_COURSE_HOME_MESSAGE_ANONYMOUS)
 
         # Verify that unenrolled users are shown an enroll call to action message
         self.user = self.create_user_for_course(self.course, CourseUserType.UNENROLLED)
         url = course_home_url(self.course)
         response = self.client.get(url)
-        self.assertContains(response, TEST_COURSE_MESSAGE)
-        self.assertContains(response, TEST_COURSE_MESSAGE_UNENROLLED)
+        self.assertContains(response, TEST_COURSE_HOME_MESSAGE)
+        self.assertContains(response, TEST_COURSE_HOME_MESSAGE_UNENROLLED)
 
         # Verify that enrolled users are not shown a message when enrolled and course has begun
         CourseEnrollment.enroll(self.user, self.course.id)
         url = course_home_url(self.course)
         response = self.client.get(url)
-        self.assertNotContains(response, TEST_COURSE_MESSAGE)
+        self.assertNotContains(response, TEST_COURSE_HOME_MESSAGE)
 
         # Verify that enrolled users are shown 'days until start' message before start date
         future_course = self.create_future_course()
         CourseEnrollment.enroll(self.user, future_course.id)
         url = course_home_url(future_course)
         response = self.client.get(url)
-        self.assertContains(response, TEST_COURSE_MESSAGE)
-        self.assertContains(response, TEST_COURSE_MESSAGE_PRE_START)
+        self.assertContains(response, TEST_COURSE_HOME_MESSAGE)
+        self.assertContains(response, TEST_COURSE_HOME_MESSAGE_PRE_START)

@@ -13,14 +13,13 @@ from openedx.features.course_experience import CourseHomeMessages
 is_rtl = get_language_bidi()
 %>
 
-<%block name="content">
 % if course_home_messages:
     % for message in course_home_messages:
         <div class="course-message grid-manual">
             % if not is_rtl:
                 <img class="message-author col col-2" src="${static.url(image_src)}"/>
             % endif
-            <div class="message-content col col-10">
+            <div class="message-content col col-9">
                 ${HTML(message.message_html)}
             </div>
             % if is_rtl:
@@ -29,4 +28,3 @@ is_rtl = get_language_bidi()
         </div>
     % endfor
 % endif
-</%block>

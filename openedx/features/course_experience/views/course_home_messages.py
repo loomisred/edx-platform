@@ -19,7 +19,7 @@ from openedx.core.djangoapps.plugin_api.views import EdxFragmentView
 from openedx.features.course_experience import CourseHomeMessages
 
 
-class CourseMessageFragmentView(EdxFragmentView):
+class CourseHomeMessageFragmentView(EdxFragmentView):
     """
     A fragment that displays a course message with an alert and call
     to action for three types of users:
@@ -72,7 +72,7 @@ class CourseMessageFragmentView(EdxFragmentView):
             'image_src': image_src,
         }
 
-        html = render_to_string('course_experience/course-message-fragment.html', context)
+        html = render_to_string('course_experience/course-message-fragments.html', context)
         return Fragment(html)
 
     @staticmethod
@@ -83,7 +83,7 @@ class CourseMessageFragmentView(EdxFragmentView):
         if user_access['is_anonymous']:
             CourseHomeMessages.register_info_message(
                 request,
-                Text(_(
+                html_body=Text(_(
                     " {sign_in_link} or {register_link} and then enroll in this course."
                 )).format(
                     sign_in_link=HTML("<a href='/login?next={current_url}'>{sign_in_label}</a>").format(
@@ -95,35 +95,34 @@ class CourseMessageFragmentView(EdxFragmentView):
                         current_url=urlquote_plus(request.path),
                     )
                 ),
-                title=Text(_('You must be enrolled in the course to see course content.'))
+                title='You must be enrolled in the course to see course content.'
             )
         if not user_access['is_anonymous'] and not user_access['is_enrolled']:
             CourseHomeMessages.register_info_message(
                 request,
-                Text(_(
+                html_body=Text(_(
                     "{open_enroll_link} Enroll now{close_enroll_link} to access the full course."
                 )).format(
                     open_enroll_link=HTML("<a class='enroll_link' href='#'>"),
                     close_enroll_link=HTML("</a>")
                 ),
-                title=Text(_(
-                    'Welcome to {course_display_name}'
-                )).format(
+                title=Text('Welcome to {course_display_name}').format(
                     course_display_name=course.display_name
                 )
             )
         if (user_access['is_staff'] or user_access['is_enrolled']) and not course_start_data['already_started']:
             CourseHomeMessages.register_info_message(
                 request,
-                Text(_(
+                html_body=Text(_(
                     "{add_reminder_open_tag}Add a calendar reminder{add_reminder_close_tag}."
                 )).format(
-                    add_reminder_open_tag=HTML("<a class='add_calendar_reminder' href='#'>"),
-                    add_reminder_close_tag=HTML("</a>")
+                    add_reminder_open_tag='',
+                    add_reminder_close_tag=''
+                    # Replace this when behavior to add calendar reminder has been implemented
+                    # add_reminder_open_tag=HTML("<a class='add_calendar_reminder' href='#'>"),
+                    # add_reminder_close_tag=HTML("</a>")
                 ),
-                title=Text(_(
-                    "Course starts in {days_until_start_string} on {course_start_date}."
-                )).format(
+                title=Text("Course starts in {days_until_start_string} on {course_start_date}.").format(
                     days_until_start_string=course_start_data['days_until_start_string'],
                     course_start_date=course_start_data['course_start_date']
                 )
