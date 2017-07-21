@@ -9,7 +9,7 @@ from datetime import datetime
 import branding
 import pytz
 from courseware.access import has_access
-from courseware.access_response import StartDateError, MilestoneError, SurveyIncompleteError
+from courseware.access_response import StartDateError, MilestoneError
 from courseware.date_summary import (
     CourseEndDate,
     CourseStartDate,
@@ -32,6 +32,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 from path import Path as path
 from static_replace import replace_static_urls
 from student.models import CourseEnrollment
+from survey.utils import must_answer_survey
 from util.date_utils import strftime_localized
 from xmodule.modulestore.django import modulestore
 from xmodule.modulestore.exceptions import ItemNotFoundError
@@ -72,7 +73,7 @@ def get_course_by_id(course_key, depth=0):
         raise Http404("Course not found: {}.".format(unicode(course_key)))
 
 
-def get_course_with_access(user, action, course_key, depth=0, check_if_enrolled=False):
+def get_course_with_access(user, action, course_key, depth=0, check_if_enrolled=False, check_survey_complete=True):
     """
     Given a course_key, look up the corresponding course descriptor,
     check that the user has the access to perform the specified action
@@ -84,9 +85,11 @@ def get_course_with_access(user, action, course_key, depth=0, check_if_enrolled=
 
     check_if_enrolled: If true, additionally verifies that the user is either enrolled in the course
       or has staff access.
+    check_survey_complete: If true, additionally verifies that the user has either completed the course survey
+      or has staff access.
     """
     course = get_course_by_id(course_key, depth)
-    check_course_access(course, user, action, check_if_enrolled)
+    check_course_access(course, user, action, check_if_enrolled, check_survey_complete)
     return course
 
 
@@ -109,12 +112,13 @@ def get_course_overview_with_access(user, action, course_key, check_if_enrolled=
     return course_overview
 
 
-def check_course_access(course, user, action, check_if_enrolled=False):
+def check_course_access(course, user, action, check_if_enrolled=False, check_survey_complete=True):
     """
     Check that the user has the access to perform the specified action
     on the course (CourseDescriptor|CourseOverview).
 
     check_if_enrolled: If true, additionally verifies that the user is enrolled.
+    check_survey_complete: If true, additionally verifies that the user has completed the survey.
     """
     # Allow staff full access to the course even if not enrolled
     if has_access(user, 'staff', course.id):
@@ -137,9 +141,6 @@ def check_course_access(course, user, action, check_if_enrolled=False):
             raise CourseAccessRedirect('{dashboard_url}'.format(
                 dashboard_url=reverse('dashboard'),
             ))
-        # Redirect if the user must answer a survey before entering the course.
-        if isinstance(access_response, SurveyIncompleteError):
-            raise CourseAccessRedirect(reverse('course_survey', args=[unicode(course.id)]))
 
         # Deliberately return a non-specific error message to avoid
         # leaking info about access control settings
@@ -149,6 +150,11 @@ def check_course_access(course, user, action, check_if_enrolled=False):
         # If the user is not enrolled, redirect them to the about page
         if not CourseEnrollment.is_enrolled(user, course.id):
             raise CourseAccessRedirect(reverse('about_course', args=[unicode(course.id)]))
+
+    # Redirect if the user must answer a survey before entering the course.
+    if check_survey_complete:
+        if must_answer_survey(user, course):
+            raise CourseAccessRedirect(reverse('course_survey', args=[unicode(course.id)]))
 
 
 def can_self_enroll_in_course(course_key):
