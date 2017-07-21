@@ -77,7 +77,7 @@ class UserMessageCollection():
     """
     @classmethod
     @abstractmethod
-    def get_name(self):
+    def get_namespace(self):
         """
         Returns the name of the message collection.
 
