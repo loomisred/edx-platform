@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2017-07-20 11:47+0000\n"
-"PO-Revision-Date: 2017-07-20 11:48:32.711353\n"
+"POT-Creation-Date: 2017-07-23 20:35+0000\n"
+"PO-Revision-Date: 2017-07-23 20:35:28.376222\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -35,17 +35,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 "Language: en\n"
-
-#: cms/static/cms/js/main.js cms/static/js/views/active_video_upload_list.js
-#: common/static/bundles/Import.js
-msgid ""
-"This may be happening because of an error with our server or your internet "
-"connection. Try refreshing the page or making sure you are online."
-msgstr ""
-
-#: cms/static/cms/js/main.js common/static/bundles/Import.js
-msgid "Studio's having trouble saving your work"
-msgstr ""
 
 #: cms/static/cms/js/xblock/cms.runtime.v1.js
 #: cms/static/js/certificates/views/signatory_details.js
@@ -1893,51 +1882,6 @@ msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js
 msgid "Turn off transcripts"
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "There was an error during the upload process."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "There was an error while unpacking the file."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "There was an error while verifying the file you submitted."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "Choose new file"
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid ""
-"File format not supported. Please upload a file with a {ext} extension."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "There was an error while importing the new library to our database."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "There was an error while importing the new course to our database."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "Your import has failed."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "Your import is in progress; navigating away will abort it."
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "Error importing course"
-msgstr ""
-
-#: common/static/bundles/Import.js
-msgid "There was an error with the upload"
 msgstr ""
 
 #: common/static/common/js/components/utils/view_utils.js
@@ -4661,6 +4605,16 @@ msgstr ""
 
 #: lms/templates/courseware/progress_graph.js
 msgid "Overall Score"
+msgstr ""
+
+#: cms/static/cms/js/main.js cms/static/js/views/active_video_upload_list.js
+msgid ""
+"This may be happening because of an error with our server or your internet "
+"connection. Try refreshing the page or making sure you are online."
+msgstr ""
+
+#: cms/static/cms/js/main.js
+msgid "Studio's having trouble saving your work"
 msgstr ""
 
 #: cms/static/cms/js/xblock/cms.runtime.v1.js

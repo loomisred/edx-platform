@@ -14,40 +14,40 @@ locales:
     # - cs  # Czech
     # - cy  # Welsh
     # - da  # Danish
-    # - de_DE  # German (Germany)
-    # - el  # Greek
+    - de_DE  # German (Germany)
+    - el  # Greek
     # - en_GB  # English (United Kingdom)
     # # Don't pull these until we figure out why pages randomly display in these locales,
     # # when the user's browser is in English and the user is not logged in.
     # #- en@lolcat  # LOLCAT English
     # #- en@pirate  # Pirate English
-    - es_419  # Spanish (Latin America)
+    # - es_419  # Spanish (Latin America)
     # - es_AR  # Spanish (Argentina)
     # - es_EC  # Spanish (Ecuador)
-    # - es_ES  # Spanish (Spain)
+    - es_ES  # Spanish (Spain)
     # - es_MX  # Spanish (Mexico)
     # - es_PE  # Spanish (Peru)
     # - et_EE  # Estonian (Estonia)
     # - eu_ES  # Basque (Spain)
     # - fa  # Persian
-    # - fa_IR  # Persian (Iran)
-    # - fi_FI  # Finnish (Finland)
+    - fa_IR  # Persian (Iran)
+    - fi_FI  # Finnish (Finland)
     # - fil  # Filipino
     - fr  # French
     # - gl  # Galician
     # - gu  # Gujarati
-    - he  # Hebrew
+    # - he  # Hebrew
     - hi  # Hindi
     # - hr  # Croatian
     # - hu  # Hungarian
     # - hy_AM  # Armenian (Armenia)
     # - id  # Indonesian
-    # - it_IT  # Italian (Italy)
+    - it_IT  # Italian (Italy)
     # - ja_JP  # Japanese (Japan)
     # - kk_KZ  # Kazakh (Kazakhstan)
     # - km_KH  # Khmer (Cambodia)
     # - kn  # Kannada
-    - ko_KR  # Korean (Korea)
+    # - ko_KR  # Korean (Korea)
     # - lt_LT  # Lithuanian (Lithuania)
     # - ml  # Malayalam
     # - mn  # Mongolian
@@ -58,7 +58,7 @@ locales:
     # - nl_NL  # Dutch (Netherlands)
     # - or  # Oriya
     # - pl  # Polish
-    - pt_BR  # Portuguese (Brazil)
+    # - pt_BR  # Portuguese (Brazil)
     # - pt_PT  # Portuguese (Portugal)
     # - ro  # Romanian
     - ru  # Russian
@@ -69,7 +69,7 @@ locales:
     # - sr  # Serbian
     # - sv  # Swedish
     # - sw  # Swahili
-    # - ta  # Tamil
+    - ta  # Tamil
     # - te  # Telugu
     # - th  # Thai
     # - tr_TR  # Turkish (Turkey)
@@ -83,10 +83,10 @@ locales:
 
 
 # The locales used for fake-accented English, for testing.
-dummy_locales:
-    - eo
-    - fake2
-    - rtl  # Fake testing language for Arabic
+# dummy_locales:
+    # - eo
+    # - fake2
+    # - rtl  # Fake testing language for Arabic
 
 # Directories we don't search for strings.
 ignore_dirs:
