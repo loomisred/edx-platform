@@ -3615,7 +3615,7 @@ msgstr "Folgende Nutzer wurden erfolgreich eingeschrieben:"
 msgid ""
 "Successfully sent enrollment emails to the following users. They will be "
 "allowed to enroll once they register:"
-msgstr ""
+msgstr "An folgende Nutzer wurden erfolgreich E-Mails zur Einschreibung gesendet. Sie können sich einschreiben, sobald sie sich angemeldet haben"
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/js/instructor_dashboard/membership.js
