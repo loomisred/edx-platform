@@ -127,7 +127,7 @@ msgstr ""
 #: cms/static/js/views/utils/xblock_utils.js lms/static/js/ccx/schedule.js
 #: lms/static/js/views/fields.js
 msgid "Saving"
-msgstr ""
+msgstr "Speichern"
 
 #: cms/static/js/certificates/views/signatory_editor.js
 #: cms/static/js/views/asset.js cms/static/js/views/list_item.js
@@ -157,7 +157,7 @@ msgstr "Abbrechen"
 #: cms/static/js/models/active_video_upload.js cms/static/js/views/assets.js
 #: cms/static/js/views/video_thumbnail.js lms/static/js/views/image_field.js
 msgid "Uploading"
-msgstr ""
+msgstr "Lade hoch"
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
@@ -203,10 +203,8 @@ msgstr "Unbekannt"
 #: cms/static/js/views/previous_video_upload.js
 #: lms/djangoapps/teams/static/teams/js/views/edit_team_members.js
 #: lms/static/js/views/image_field.js
-#: cms/templates/js/video/metadata-translations-item.underscore
-#: lms/djangoapps/teams/static/teams/templates/edit-team-member.underscore
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #: cms/static/js/views/metadata.js lms/static/js/views/file_uploader.js
 msgid "Upload File"
@@ -309,8 +307,8 @@ msgstr "Auf Anmerkung antworten"
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "%(num_points)s point possible (graded, results hidden)"
 msgid_plural "%(num_points)s points possible (graded, results hidden)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num_points)s Punkt möglich (bewertet, Ergebnisse versteckt)"
+msgstr[1] "%(num_points)s Punkte möglich (bewertet, Ergebnisse versteckt)"
 
 #. Translators: %(num_points)s is the number of points possible (examples: 1,
 #. 3, 10).;
@@ -3615,7 +3613,7 @@ msgstr "Folgende Nutzer wurden erfolgreich eingeschrieben:"
 msgid ""
 "Successfully sent enrollment emails to the following users. They will be "
 "allowed to enroll once they register:"
-msgstr "An folgende Nutzer wurden erfolgreich E-Mails zur Einschreibung gesendet. Sie können sich einschreiben, sobald sie sich angemeldet haben"
+msgstr ""
 
 #. Translators: A list of users appears after this sentence;
 #: lms/static/js/instructor_dashboard/membership.js
@@ -4408,7 +4406,7 @@ msgstr ""
 
 #: lms/static/js/student_account/views/account_settings_view.js
 msgid "Account Information"
-msgstr ""
+msgstr "Kontoinformation"
 
 #: lms/static/js/student_account/views/account_settings_view.js
 msgid "Order History"
