@@ -4878,7 +4878,7 @@ msgstr "Karriere"
 
 #: lms/djangoapps/branding/api.py lms/templates/static_templates/donate.html
 msgid "Donate"
-msgstr "Spende"
+msgstr "Impressum"
 
 #: lms/djangoapps/branding/api.py
 msgid "Terms of Service & Honor Code"
@@ -10947,7 +10947,7 @@ msgstr "Kursnummer:"
 #: lms/templates/navigation/bootstrap/navbar-not-authenticated.html
 #: themes/edx.org/lms/templates/header.html
 msgid "Courses"
-msgstr "Kurs"
+msgstr "Kurse"
 
 #: cms/templates/login.html cms/templates/widgets/header.html
 #: themes/red-theme/cms/templates/login.html
@@ -10960,7 +10960,7 @@ msgstr "In {studio_name} einloggen"
 
 #: cms/templates/login.html themes/red-theme/cms/templates/login.html
 msgid "Don't have a {studio_name} Account? Sign up!"
-msgstr "Sie haben kein {studio_name} Nutzerkonto? Registrieren Sie sich!"
+msgstr "Du hast kein {studio_name} Nutzerkonto? Registriere Dich!"
 
 #: cms/templates/login.html themes/red-theme/cms/templates/login.html
 msgid "Required Information to Sign In to {studio_name}"
@@ -10998,7 +10998,7 @@ msgstr "Passwort vergessen?"
 #: cms/templates/register.html lms/templates/register-form.html
 #: themes/stanford-style/lms/templates/register-form.html
 msgid "example: Jane Doe"
-msgstr "Beispiel: Susi Sorglos"
+msgstr "Beispiel: Hans Hase"
 
 #. Translators: This is the placeholder text for a field that asks the user to
 #. pick a username
@@ -11007,7 +11007,7 @@ msgstr "Beispiel: Susi Sorglos"
 #: themes/stanford-style/lms/templates/register-form.html
 #: themes/stanford-style/lms/templates/register-shib.html
 msgid "example: JaneDoe"
-msgstr "Beispiel: SusiSo"
+msgstr "Beispiel: Hänschen"
 
 #: cms/templates/settings.html
 #: lms/templates/instructor/instructor_dashboard_2/executive_summary.html
@@ -11315,7 +11315,7 @@ msgstr "Ausschreiben"
 
 #: lms/templates/edit_unit_link.html
 msgid "View Unit in Studio"
-msgstr "Lerneinheit im Studio betrachten"
+msgstr "Im Studio öffnen"
 
 #: lms/templates/email_change_failed.html lms/templates/email_exists.html
 msgid "E-mail change failed"
@@ -11420,12 +11420,12 @@ msgstr "Ihre E-Mail-Adresse"
 
 #: lms/templates/forgot_password_modal.html lms/templates/login.html
 msgid "This is the e-mail address you used to register with {platform}"
-msgstr "Die E-Mail-Adresse, mit der Sie sich in {platform} registriert haben"
+msgstr "Die E-Mail-Adresse, mit der Du Dich auf {platform} registriert hast"
 
 #: lms/templates/forgot_password_modal.html
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Reset My Password"
-msgstr "Passwort zurücksetzen"
+msgstr "Mein Passwort zurücksetzen"
 
 #: lms/templates/forgot_password_modal.html
 msgid "Email is incorrect."
@@ -11683,7 +11683,7 @@ msgstr "Nicht eingeschrieben?"
 
 #: lms/templates/login-sidebar.html
 msgid "Sign up for {platform_name} today!"
-msgstr "Registrieren Sie sich noch heute für {platform_name}!"
+msgstr "Registriere Dich noch heute für {platform_name}!"
 
 #: lms/templates/login-sidebar.html lms/templates/register-sidebar.html
 #: themes/stanford-style/lms/templates/register-sidebar.html
@@ -11692,17 +11692,17 @@ msgstr "Hilfe?"
 
 #: lms/templates/login-sidebar.html
 msgid "Looking for help signing in or with your {platform_name} account?"
-msgstr ""
+msgstr "Benötigst Du Hilfe beim Einloggen in Dein {platform_name} Konto?"
 
 #: lms/templates/login-sidebar.html
 msgid "View our help section for answers to commonly asked questions."
 msgstr ""
-"Schauen Sie auf unsere Hilfe-Seite, um Antworten auf häufig gestellte Fragen"
-" zu bekommen."
+"Schaue auf unserer Hilfe-Seite vorbei, um Antworten auf häufig gestellte "
+"Fragen zu bekommen."
 
 #: lms/templates/login.html
 msgid "Log into your {platform_name} Account"
-msgstr "Melden Sie sich in Ihr {platform_name} Konto an"
+msgstr "Melde Dich auf Deinem {platform_name} Konto an"
 
 #: lms/templates/login.html
 msgid "Log into My {platform_name} Account"
@@ -11724,7 +11724,7 @@ msgstr "Bitte anmelden"
 
 #: lms/templates/login.html
 msgid "to access your account and courses"
-msgstr "um Zugang zu ihrem Konto und Kursen zu erhalten"
+msgstr "um Zugang zu Deinem Konto und den Kursen zu erhalten"
 
 #: lms/templates/login.html
 msgid "We're Sorry, {platform_name} accounts are unavailable currently"
@@ -11734,11 +11734,11 @@ msgstr ""
 
 #: lms/templates/login.html
 msgid "We couldn't log you in."
-msgstr "We konnten Sie nicht anmelden."
+msgstr "We konnten Dich nicht anmelden."
 
 #: lms/templates/login.html
 msgid "Your email or password is incorrect"
-msgstr "Ihre E-Mail oder Ihr Passwort ist falsch"
+msgstr "Deine E-Mail oder Dein Passwort ist falsch"
 
 #: lms/templates/login.html
 msgid "An error occurred when signing you in to {platform_name}."
@@ -11888,15 +11888,15 @@ msgstr "Kurs ansehen als:"
 
 #: lms/templates/preview_menu.html
 msgid "Learner"
-msgstr ""
+msgstr "Studierender"
 
 #: lms/templates/preview_menu.html
 msgid "Specific learner"
-msgstr ""
+msgstr "Spezieller Studierender"
 
 #: lms/templates/preview_menu.html
 msgid "Learner in {content_group}"
-msgstr ""
+msgstr "Studierender {content_group}"
 
 #: lms/templates/preview_menu.html
 msgid "Username or email:"
@@ -11990,7 +11990,7 @@ msgstr "Mit {provider_name} registrieren"
 #: lms/templates/register-form.html
 #: themes/stanford-style/lms/templates/register-form.html
 msgid "Create your own {platform_name} account below"
-msgstr "Erstellen Sie unten Ihr eignes {platform_name}-Konto"
+msgstr "Erstelle unten Dein eignes {platform_name}-Konto"
 
 #: lms/templates/register-form.html lms/templates/register-shib.html
 #: themes/stanford-style/lms/templates/register-form.html
@@ -12078,7 +12078,7 @@ msgstr "Höchste erreichte Bildungsstufe"
 #: themes/stanford-style/lms/templates/register-form.html
 msgid "Please share with us your reasons for registering with {platform_name}"
 msgstr ""
-"Bitte teilen Sie uns Ihre Gründe für Ihre Registrierung bei {platform_name} "
+"Bitte teile uns Deine Gründe für Deine Registrierung bei {platform_name} "
 "mit."
 
 #: lms/templates/register-form.html lms/templates/register-shib.html
@@ -12165,10 +12165,10 @@ msgid ""
 "future free courses. Not ready to take a course just yet? Registering puts "
 "you on our mailing list - we will update you as courses are added."
 msgstr ""
-"Mit der Registrierung für {platform_name} erhalten Sie Zugang zu allen "
-"aktuellen und zukünftigen freien Kursen. Es ist noch kein Kurs für Sie "
-"vorhanden? Mit der Registrierung sind Sie in unserer Mailingliste und "
-"erhalten Benachrichtigungen über neue Kurse die hinzugef&uuml;gt wurden."
+"Mit der Registrierung auf {platform_name} erhältst Du Zugang zu allen "
+"aktuellen und zukünftigen freien Kursen. Es ist noch kein Kurs für Dich "
+"vorhanden? Mit der Registrierung bist Du in unserer Mailingliste und "
+"erhältst Benachrichtigungen über neue Kurse die hinzugefügt wurden."
 
 #: lms/templates/register-sidebar.html
 #: themes/stanford-style/lms/templates/register-sidebar.html
@@ -12181,7 +12181,7 @@ msgid ""
 "instructions for activating your account. Don't see the email? Check your "
 "spam folder and mark {platform_name} emails as 'not spam'. At "
 "{platform_name}, we communicate mostly through email."
-msgstr ""
+msgstr "-"
 
 #: lms/templates/register-sidebar.html
 msgid "Need help registering with {platform_name}?"
@@ -12197,7 +12197,7 @@ msgid ""
 "You can find the answers to most of your questions in our list of FAQs. "
 "After you enroll in a course, you can also find answers in the course "
 "discussions."
-msgstr ""
+msgstr "-"
 
 #: lms/templates/register.html
 msgid "Register for {platform_name}"
@@ -12213,7 +12213,7 @@ msgstr "Willkommen!"
 
 #: lms/templates/register.html
 msgid "Register below to create your {platform_name} account"
-msgstr "Erstellen Sie hier ein {platform_name} Konto"
+msgstr "Erstelle hier ein {platform_name} Konto"
 
 #: lms/templates/resubscribe.html
 msgid "Re-subscribe Successful!"
@@ -12298,11 +12298,11 @@ msgstr "Inaktive Gruppen"
 
 #: lms/templates/staff_problem_info.html
 msgid "Staff Debug Info"
-msgstr "Mitarbeiterfehlerbehebungsansicht"
+msgstr "Mitarbeiter Debug Info"
 
 #: lms/templates/staff_problem_info.html
 msgid "Submission history"
-msgstr "Eingabenverlauf"
+msgstr "Eingabeverlauf"
 
 #: lms/templates/staff_problem_info.html
 msgid "{platform_name} Content Quality Assessment"
@@ -12314,11 +12314,11 @@ msgstr "Kommentar"
 
 #: lms/templates/staff_problem_info.html
 msgid "comment"
-msgstr "Kommentar"
+msgstr "kommentieren"
 
 #: lms/templates/staff_problem_info.html
 msgid "Tag"
-msgstr "Stichwort"
+msgstr ""
 
 #: lms/templates/staff_problem_info.html
 msgid "Optional tag (eg \"done\" or \"broken\"):"
@@ -12326,7 +12326,7 @@ msgstr "Optionales Schlagwort (z.B. \"erledigt\" oder \"kaputt\"):"
 
 #: lms/templates/staff_problem_info.html
 msgid "tag"
-msgstr "Stichwort"
+msgstr ""
 
 #: lms/templates/staff_problem_info.html
 msgid "Add comment"
@@ -12347,17 +12347,17 @@ msgstr ""
 
 #: lms/templates/staff_problem_info.html
 msgid "Reset Learner's Attempts to Zero"
-msgstr "Teilnehmerversuche auf Null zurücksetzen"
+msgstr "Versuche auf Null zurücksetzen"
 
 #: lms/templates/staff_problem_info.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Delete Learner's State"
-msgstr "Teilnehmerfortschritt löschen"
+msgstr "Fortschritt löschen"
 
 #: lms/templates/staff_problem_info.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Rescore Learner's Submission"
-msgstr "Teilnehmereinreichung neu bewerten"
+msgstr "Einreichung neu bewerten"
 
 #: lms/templates/staff_problem_info.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
@@ -13933,7 +13933,7 @@ msgstr "Sie sind in diesem Kurs eingeschrieben"
 #: lms/templates/dashboard/_dashboard_course_listing.html
 #: lms/templates/shoppingcart/registration_code_receipt.html
 msgid "View Course"
-msgstr "Kurs anzeigen"
+msgstr "Zum Kurs"
 
 #: lms/templates/courseware/course_about.html
 msgid "This course is in your <a href=\"{cart_link}\">cart</a>."
@@ -14130,7 +14130,7 @@ msgstr "Willkommen bei {org}'s {course_name}!"
 
 #: lms/templates/courseware/info.html
 msgid "Resume Course"
-msgstr ""
+msgstr "Kurs fortführen"
 
 #: lms/templates/courseware/info.html
 msgid "View Updates in Studio"
@@ -14146,7 +14146,7 @@ msgstr "Informationsmaterial Navigation"
 
 #: lms/templates/courseware/info.html
 msgid "Course Tools"
-msgstr ""
+msgstr "Kurs Tools"
 
 #: lms/templates/courseware/news.html
 msgid "News - MITx 6.002x"
@@ -15765,7 +15765,7 @@ msgstr ""
 
 #: lms/templates/financial-assistance/financial-assistance.html
 msgid "Dear edX Learner,"
-msgstr "Lieber edx Teilnehmer, "
+msgstr "Lieber HeidelbergX Studierender, "
 
 #: lms/templates/financial-assistance/financial-assistance.html
 msgid ""
@@ -17144,15 +17144,15 @@ msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "All Learners"
-msgstr "Teilnehmer Gesamt"
+msgstr "Alle Studierenden"
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "Cohort: "
-msgstr "Großgruppe:"
+msgstr "Kohorte:"
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "(Learners not explicitly assigned to a cohort)"
-msgstr ""
+msgstr "Studierende, die nicht explizit einer Kohorte zugeordnet sind"
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "Learners in the {track_name} Track"
@@ -18248,7 +18248,18 @@ msgstr ""
 #: lms/templates/static_templates/about.html
 #: lms/templates/static_templates/blog.html
 #: lms/templates/static_templates/contact.html
+msgid "Contact Text"
+msgstr ""
+"Markus QreiniAbt. Allgemeinmedizin und Versorgungsforschung Uniklinik "
+"Heidelberg Telefon +49 06221 56 8077 markus.qreini@med.uni-heidelberg.de"
+
 #: lms/templates/static_templates/donate.html
+msgid "Donate Text"
+msgstr ""
+"Imad Qreini Information Systems (IQIS) Abt. Allgemeinmedizin und "
+"Versorgungsforschung University Hospital of Heidelberg INF 130.3, Marsilius "
+"Arcades Heidelberg Germany Phone +49 6221 56 8077, email: service@qreini.de "
+
 #: lms/templates/static_templates/faq.html
 #: lms/templates/static_templates/help.html
 #: lms/templates/static_templates/honor.html
@@ -18257,9 +18268,21 @@ msgstr ""
 #: lms/templates/static_templates/news.html
 #: lms/templates/static_templates/press.html
 #: lms/templates/static_templates/privacy.html
-#: lms/templates/static_templates/tos.html
-msgid "This page left intentionally blank. Feel free to add your own content."
+msgid "Privacy Text"
 msgstr ""
+"Alle auf dieser Plattform erhobenen personenbezogenen Daten werden "
+"ausschließlich für Zwecke des Angebotes dieser Plattform und zur "
+"Kommunikation mit den Studierenden genutzt. Daten werden nicht weiter "
+"gegeben, für Werbezwecke genutzt und verbleiben innerhalb der den jeweiligen"
+" Kurs anbietenden Organisation."
+
+#: lms/templates/static_templates/tos.html
+msgid "TOS Text"
+msgstr ""
+"Es gelten die jeweiligen Nutzungsbedingungen der Kursanbieter. Insbesondere "
+"bei Universitäten bestehen für einige Kurse Zugangsbeschränkungen, die hier "
+"ausdrücklich gelten. Eine Teilnahme an einem Kurs begründet keinen Anspruch "
+"auf Ausstellung eines Zertifikats."
 
 #: lms/templates/static_templates/embargo.html
 msgid ""
@@ -18268,6 +18291,14 @@ msgid ""
 " sanctions.Unfortunately, because {platform_name} is required to comply with"
 " export controls,we cannot allow you to access this course at this time."
 msgstr ""
+
+#: lms/templates/static_templates/honor.html
+msgid "Honor Text"
+msgstr ""
+"Als Studierender auf HeidelbergX verpflichtest Du Dich dem "
+"wissenschaftlichen Ehrenkodex nach den Empfehlungen der DFG-Kommission "
+"'Selbstkontrolle in der Wissenschaft' 1998, aktualisiert 3. Juli 2013. Siehe"
+" auch www.dfg.de.Oder einfach: Seid  brav und schummelt nicht!"
 
 #: lms/templates/static_templates/jobs.html
 #: themes/red-theme/lms/templates/footer.html
